@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manuel Paredes — Robotics & Welding Expert</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f9f9f7;
+      --fg: #111;
+      --muted: #666;
+      --accent: #c0392b;
+      --border: #e0e0da;
+      --max: 740px;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--fg);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      background: var(--bg);
+      z-index: 10;
+    }
+
+    .logo {
+      font-size: 0.85rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: var(--fg);
+      text-decoration: none;
+    }
+
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--fg); }
+
+    /* WRAPPER */
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 6rem 0 4.5rem;
+    }
+
+    .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: Georgia, serif;
+      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.6rem;
+      border: 1px solid var(--fg);
+      color: var(--fg);
+      text-decoration: none;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: background 0.2s, color 0.2s;
+      margin-right: 0.75rem;
+    }
+    .btn:hover { background: var(--fg); color: var(--bg); }
+
+    /* DIVIDER */
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* SECTION */
+    section {
+      padding: 4rem 0;
+    }
+
+    .label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: block;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-family: Georgia, serif;
+      font-size: 1.9rem;
+      font-weight: 400;
+      margin-bottom: 1.25rem;
+      line-height: 1.25;
+    }
+
+    p { color: var(--muted); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ABOUT GRID */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--border);
+      margin-top: 2.5rem;
+    }
+
+    .about-cell {
+      background: var(--bg);
+      padding: 1.75rem;
+    }
+
+    .about-cell h3 {
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      color: var(--fg);
+    }
+
+    .about-cell ul {
+      list-style: none;
+      font-size: 0.88rem;
+      color: var(--muted);
+      line-height: 2.1;
+    }
+
+    /* TIMELINE */
+    .timeline { margin-top: 2.5rem; }
+
+    .tl-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      padding: 1.5rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .tl-item:last-child { border-bottom: 1px solid var(--border); }
+
+    .tl-year {
+      font-size: 0.78rem;
+      color: var(--muted);
+      padding-top: 3px;
+    }
+
+    .tl-body h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: var(--fg);
+    }
+
+    .tl-body .co {
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.05em;
+      display: block;
+      margin-bottom: 0.4rem;
+    }
+
+    .tl-body p { font-size: 0.88rem; }
+
+    /* PROJECTS */
+    .projects { margin-top: 2.5rem; }
+
+    .project {
+      padding: 2rem 0;
+      border-top: 1px solid var(--border);
+    }
+    .project:last-child { border-bottom: 1px solid var(--border); }
+
+    .project-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.18rem 0.55rem;
+      border: 1px solid var(--border);
+      color: var(--muted);
+    }
+    .tag.r { border-color: #2980b9; color: #2980b9; }
+    .tag.w { border-color: var(--accent); color: var(--accent); }
+    .tag.h { border-color: #27ae60; color: #27ae60; }
+
+    .project-year { font-size: 0.78rem; color: var(--muted); }
+
+    .project h3 {
+      font-family: Georgia, serif;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--fg);
+    }
+
+    .project p { font-size: 0.9rem; }
+
+    /* CONTACT */
+    .contact-line {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    .contact-line a {
+      color: var(--fg);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+    }
+    .contact-line a:hover { border-color: var(--fg); }
+
+    /* FOOTER */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 2rem;
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 560px) {
+      nav ul { gap: 1.25rem; }
+      .about-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 60px 1fr; }
+      .hero { padding: 3.5rem 0 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">Manuel Paredes</a>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="wrap">
+  <div class="hero">
+    <span class="eyebrow">Robotics &amp; Welding Expert</span>
+    <h1>Precision at the<br>intersection of metal<br>and motion.</h1>
+    <p>
+      I engineer robotic systems and advanced welding solutions for demanding
+      industrial environments — from concept and design through fabrication
+      and deployment.
+    </p>
+    <a href="#projects" class="btn">View Projects</a>
+    <a href="#contact" class="btn">Contact</a>
+  </div>
+</div>
+
+<hr />
+
+<!-- ABOUT -->
+<div class="wrap">
+  <section id="about">
+    <span class="label">About</span>
+    <h2>Skills &amp; Expertise</h2>
+    <p>
+      With a background spanning industrial robotics and precision welding,
+      I bridge the gap between mechanical engineering and hands-on fabrication.
+      I design automation systems that are reliable, repeatable, and built to
+      survive real production conditions.
+    </p>
+    <p>
+      My work combines programming, mechanical design, and metallurgy — giving
+      me an end-to-end perspective that few specialists can offer.
+    </p>
+
+    <div class="about-grid">
+      <div class="about-cell">
+        <h3>Robotics</h3>
+        <ul>
+          <li>Industrial robot programming (FANUC, ABB, KUKA)</li>
+          <li>Collaborative robotics (cobots)</li>
+          <li>Motion planning &amp; path optimization</li>
+          <li>PLC integration &amp; sensor fusion</li>
+          <li>End-effector design</li>
+          <li>ROS / ROS 2</li>
+        </ul>
+      </div>
+      <div class="about-cell">
+        <h3>Welding</h3>
+        <ul>
+          <li>MIG / GMAW &amp; TIG / GTAW</li>
+          <li>Robotic arc welding systems</li>
+          <li>Structural &amp; aerospace fabrication</li>
+          <li>Exotic alloys (titanium, Inconel, duplex SS)</li>
+          <li>Weld procedure development (WPS / PQR)</li>
+          <li>NDT interpretation</li>
+        </ul>
+      </div>
+      <div class="about-cell">
+        <h3>Engineering</h3>
+        <ul>
+          <li>CAD / CAM (SolidWorks, Fusion 360)</li>
+          <li>Simulation &amp; FEA</li>
+          <li>Fixture &amp; tooling design</li>
+          <li>Process documentation &amp; quality control</li>
+        </ul>
+      </div>
+      <div class="about-cell">
+        <h3>Certifications</h3>
+        <ul>
+          <li>AWS Certified Welding Inspector (CWI)</li>
+          <li>FANUC Certified Robot Operator</li>
+          <li>OSHA 30 — Manufacturing</li>
+          <li>ISO 9001 Internal Auditor</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr />
+
+<!-- EXPERIENCE -->
+<div class="wrap">
+  <section id="experience">
+    <span class="label">Experience</span>
+    <h2>Work History</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-year">2022 – Present</div>
+        <div class="tl-body">
+          <h3>Senior Robotics &amp; Welding Engineer</h3>
+          <span class="co">Advanced Fabrication Industries</span>
+          <p>
+            Lead engineer for robotic welding cell design and deployment across
+            three production facilities. Reduced cycle time by 34% and weld
+            defect rate by 60% through process re-engineering and adaptive
+            control integration.
+          </p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2018 – 2022</div>
+        <div class="tl-body">
+          <h3>Automation Engineer</h3>
+          <span class="co">MetalTech Solutions</span>
+          <p>
+            Designed and commissioned robotic arc welding systems for
+            heavy-equipment OEMs. Developed custom end-effectors and seam
+            tracking systems for complex joint geometries.
+          </p>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-year">2015 – 2018</div>
+        <div class="tl-body">
+          <h3>Welding Technician &amp; Programmer</h3>
+          <span class="co">Precision Structures Corp.</span>
+          <p>
+            Hands-on welding of aerospace and structural assemblies alongside
+            programming of FANUC and ABB robot cells. First point of contact
+            for weld quality issues and fixture development.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr />
+
+<!-- PROJECTS -->
+<div class="wrap">
+  <section id="projects">
+    <span class="label">Projects</span>
+    <h2>Selected Work</h2>
+
+    <div class="projects">
+      <div class="project">
+        <div class="project-meta">
+          <span class="tag h">Hybrid</span>
+          <span class="project-year">2024</span>
+        </div>
+        <h3>Adaptive Robotic Welding Cell for Pressure Vessels</h3>
+        <p>
+          Designed a fully adaptive welding cell using a 6-axis FANUC arm with
+          laser seam tracking and real-time parameter adjustment. The system
+          handles variable joint fit-up on ASME-code pressure vessels,
+          eliminating manual re-teaching and cutting setup time from 4 hours
+          to under 20 minutes.
+        </p>
+      </div>
+
+      <div class="project">
+        <div class="project-meta">
+          <span class="tag r">Robotics</span>
+          <span class="project-year">2023</span>
+        </div>
+        <h3>Multi-Robot Collaborative Assembly Line</h3>
+        <p>
+          Coordinated a 4-robot cell (2 ABB IRB 6700, 2 collaborative UR10e)
+          for tack welding and material handling of structural steel frames.
+          Implemented collision-free motion planning using ROS 2 MoveIt and
+          achieved a 28% throughput gain over the previous manual process.
+        </p>
+      </div>
+
+      <div class="project">
+        <div class="project-meta">
+          <span class="tag w">Welding</span>
+          <span class="project-year">2022</span>
+        </div>
+        <h3>Titanium Aerospace Bracket — WPS Development</h3>
+        <p>
+          Developed weld procedure specifications for Grade 5 titanium
+          brackets used in aircraft secondary structures. Qualified procedures
+          per AWS D17.1, including inert-gas purging protocols that achieved
+          zero porosity on 100% of radiographic inspections.
+        </p>
+      </div>
+
+      <div class="project">
+        <div class="project-meta">
+          <span class="tag r">Robotics</span>
+          <span class="project-year">2021</span>
+        </div>
+        <h3>Custom End-Effector for Thin-Wall Tube Welding</h3>
+        <p>
+          Designed and fabricated a dual-torch end-effector for orbital welding
+          of thin-wall stainless steel tubing on a KUKA KR 10 R1100. Integrated
+          vision-based joint detection and proprietary torch angle compensation
+          logic to maintain consistent fusion on ±0.3 mm fit-up variation.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr />
+
+<!-- CONTACT -->
+<div class="wrap">
+  <section id="contact">
+    <span class="label">Contact</span>
+    <h2>Get in touch.</h2>
+    <p>
+      Available for consulting, full-time roles, and speaking engagements
+      related to robotic welding, automation integration, and advanced
+      fabrication.
+    </p>
+    <div class="contact-line">
+      Email: <a href="mailto:paredesgmm@gmail.com">paredesgmm@gmail.com</a>
+    </div>
+  </section>
+</div>
+
+<footer>
+  © 2026 Manuel Paredes
+</footer>
+
+</body>
+</html>

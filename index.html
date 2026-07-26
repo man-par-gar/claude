@@ -143,6 +143,12 @@
     .about-photo { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(15,39,68,0.15); }
     .about-photo img { width: 100%; display: block; }
     @media (max-width: 860px) { .about-split { grid-template-columns: 1fr; } .about-photo { max-width: 300px; } }
+
+    .lang-switch { display:flex; align-items:center; gap:0.4rem; margin-left:1.5rem; }
+    .lang-switch a { color:rgba(255,255,255,0.5); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-decoration:none; transition:color 0.2s; }
+    .lang-switch a.active { color:var(--white); }
+    .lang-switch span { color:rgba(255,255,255,0.25); font-size:0.7rem; }
+    @media(max-width:640px){ .lang-switch { margin-left:0.75rem; } }
   </style>
 </head>
 <body>
@@ -153,8 +159,9 @@
     <li><a href="index.html" class="active">Home</a></li>
     <li><a href="projects.html">Projects</a></li>
     <li><a href="experience.html">Experience</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
+  <div class="lang-switch"><a href="index.html" class="active">EN</a><span>|</span><a href="es/index.html">ES</a></div>
 </nav>
 
 <!-- HERO -->

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manuel Paredes — Consultoría en Soldadura, Automatización y Robótica</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iOCIgZmlsbD0iIzFhM2E1YyIvPjx0ZXh0IHg9IjMyIiB5PSI0NCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TVA8L3RleHQ+PC9zdmc+" />
+  <style>
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --blue:   #0f2744;
+      --accent: #1e5faa;
+      --white:  #ffffff;
+      --off:    #f4f6f9;
+      --muted:  #64748b;
+      --border: #e2e8f0;
+      --max:    1040px;
+    }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--blue); font-family: 'Inter','Helvetica Neue',Helvetica,Arial,sans-serif; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+    /* NAV */
+    nav { background: rgba(15,39,68,0.97); backdrop-filter: blur(12px); padding: 1rem 2.5rem; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; border-bottom: 1px solid rgba(255,255,255,0.07); }
+    .logo { font-size: 1rem; font-weight: 700; color: var(--white); text-decoration: none; letter-spacing: 0.02em; }
+    .logo span { color: rgba(255,255,255,0.45); font-weight: 400; }
+    nav ul { list-style: none; display: flex; gap: 2rem; }
+    nav a { text-decoration: none; color: rgba(255,255,255,0.6); font-size: 0.82rem; letter-spacing: 0.05em; transition: color 0.2s; font-weight: 500; }
+    nav a:hover, nav a.active { color: var(--white); }
+
+    /* LAYOUT */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; }
+    section { padding: 5rem 0; }
+    .section-alt { background: var(--off); }
+    .label { font-size: 0.63rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.75rem; font-weight: 700; }
+    h2 { font-family: Georgia,'Times New Roman',serif; font-size: 2.1rem; font-weight: 400; margin-bottom: 1.25rem; line-height: 1.2; color: var(--blue); letter-spacing: -0.02em; }
+    h3 { color: var(--blue); }
+    p { color: var(--muted); margin-bottom: 1rem; }
+    p:last-child { margin-bottom: 0; }
+    hr { border: none; border-top: 1px solid var(--border); }
+    .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.6rem; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.2s; }
+    .btn-blue { background: var(--blue); color: var(--white); border: 2px solid var(--blue); }
+    .btn-blue:hover { background: var(--accent); border-color: var(--accent); }
+    .btn-outline { background: transparent; color: var(--blue); border: 2px solid var(--border); }
+    .btn-outline:hover { border-color: var(--blue); }
+    .btn-white { background: var(--white); color: var(--blue); border: 2px solid var(--white); }
+    .btn-white:hover { background: transparent; color: var(--white); }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.9); border: 2px solid rgba(255,255,255,0.35); }
+    .btn-ghost:hover { border-color: var(--white); color: var(--white); }
+    .tag { font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.75rem; border-radius: 100px; border: 1px solid var(--accent); color: var(--accent); font-weight: 600; white-space: nowrap; }
+    .tag-solid { background: var(--blue); color: var(--white); border-color: var(--blue); }
+
+    /* FOOTER */
+    footer { background: var(--blue); color: rgba(255,255,255,0.45); text-align: center; padding: 2.5rem; font-size: 0.75rem; letter-spacing: 0.06em; }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+
+    @media (max-width: 640px) {
+      nav { padding: 0.9rem 1.25rem; }
+      nav ul { gap: 0.9rem; }
+      .wrap { padding: 0 1.25rem; }
+      h2 { font-size: 1.7rem; }
+    }
+
+
+    .lang-switch { display:flex; align-items:center; gap:0.4rem; margin-left:1.5rem; }
+    .lang-switch a { color:rgba(255,255,255,0.5); font-size:0.75rem; font-weight:700; letter-spacing:0.1em; text-decoration:none; transition:color 0.2s; }
+    .lang-switch a.active { color:var(--white); }
+    .lang-switch span { color:rgba(255,255,255,0.25); font-size:0.7rem; }
+    @media(max-width:640px){ .lang-switch { margin-left:0.75rem; } }
+
+
+    .hero { background: linear-gradient(135deg, #0f2744 0%, #1a3d6e 60%, #1e5faa 100%); color: var(--white); padding: 7rem 2.5rem 6rem; position: relative; overflow: hidden; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(30,95,170,0.35) 0%, transparent 70%); pointer-events: none; }
+    .hero-inner { max-width: var(--max); margin: 0 auto; position: relative; display: grid; grid-template-columns: 1fr auto; gap: 4rem; align-items: center; }
+    .hero-text .eyebrow { font-size: 0.68rem; letter-spacing: 0.3em; text-transform: uppercase; color: rgba(255,255,255,0.5); display: block; margin-bottom: 1.5rem; }
+    .hero-text h1 { font-family: Georgia,'Times New Roman',serif; font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; line-height: 1.12; margin-bottom: 1.5rem; color: var(--white); letter-spacing: -0.01em; }
+    .hero-text p { font-size: 1.05rem; color: rgba(255,255,255,0.72); max-width: 500px; margin-bottom: 2.5rem; line-height: 1.8; }
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 2.5rem; }
+    .lang-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .lang { font-size: 0.67rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 100px; border: 1px solid rgba(255,255,255,0.25); color: rgba(255,255,255,0.65); }
+    .hero-photo { width: 260px; height: 320px; border-radius: 12px; overflow: hidden; border: 3px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.08); flex-shrink: 0; }
+    .hero-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .feat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3rem; }
+    .feat-card { border-radius: 14px; overflow: hidden; background: var(--white); border: 1px solid var(--border); box-shadow: 0 2px 8px rgba(0,0,0,0.06); transition: transform 0.25s, box-shadow 0.25s; display: flex; flex-direction: column; }
+    .feat-card:hover { transform: translateY(-5px); box-shadow: 0 12px 32px rgba(15,39,68,0.13); }
+    .feat-img { height: 220px; background-size: cover; background-position: center; position: relative; }
+    .feat-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,39,68,0.55) 0%, transparent 60%); }
+    .feat-num { position: absolute; bottom: 1rem; left: 1rem; font-size: 2rem; font-weight: 800; color: rgba(255,255,255,0.2); line-height: 1; font-family: Georgia, serif; }
+    .feat-body { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; gap: 0.6rem; }
+    .feat-body h3 { font-size: 1.05rem; font-weight: 700; line-height: 1.3; margin: 0; }
+    .feat-body p { font-size: 0.85rem; line-height: 1.7; flex: 1; }
+    .feat-link { font-size: 0.78rem; font-weight: 600; color: var(--accent); text-decoration: none; letter-spacing: 0.04em; margin-top: auto; }
+    .feat-link:hover { color: var(--blue); }
+    .about-split { display: grid; grid-template-columns: 340px 1fr; gap: 4rem; align-items: center; }
+    .about-photo { border-radius: 14px; overflow: hidden; box-shadow: 0 8px 32px rgba(15,39,68,0.15); }
+    .about-photo img { width: 100%; display: block; }
+    .services-preview { display: grid; grid-template-columns: repeat(2,1fr); gap: 1rem; margin-top: 2rem; }
+    .svc-card { background: var(--white); border: 1px solid var(--border); border-radius: 10px; padding: 1.5rem; display: flex; gap: 1rem; align-items: flex-start; }
+    .svc-icon { width: 40px; height: 40px; background: var(--blue); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .svc-icon svg { width: 20px; height: 20px; fill: none; stroke: white; stroke-width: 2; stroke-linecap: round; }
+    .svc-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .svc-card p { font-size: 0.82rem; }
+    .exp-preview { margin-top: 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+    .exp-row { display: flex; gap: 1.5rem; align-items: flex-start; padding: 1.25rem; border-radius: 10px; border: 1px solid var(--border); background: var(--white); }
+    .exp-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); margin-top: 6px; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(30,95,170,0.15); }
+    .exp-row h3 { font-size: 0.92rem; font-weight: 700; margin-bottom: 0.15rem; }
+    .exp-row .co { font-size: 0.78rem; color: var(--accent); font-weight: 600; }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-top: 2rem; }
+    .contact-cell { background: var(--white); padding: 1.5rem 1.75rem; border-radius: 10px; border: 1px solid var(--border); }
+    .c-label { font-size: 0.63rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.4rem; font-weight: 600; }
+    .contact-cell a { color: var(--blue); text-decoration: none; font-size: 0.9rem; font-weight: 600; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+    .contact-cell a:hover { border-color: var(--blue); }
+    @media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } .hero-photo { width: 200px; height: 240px; margin: 0 auto; } .feat-grid { grid-template-columns: 1fr 1fr; } .services-preview { grid-template-columns: 1fr; } .contact-grid { grid-template-columns: 1fr; } .about-split { grid-template-columns: 1fr; } .about-photo { max-width: 300px; } }
+    @media (max-width: 640px) { .hero { padding: 4rem 1.5rem 3.5rem; } .hero-photo { display: none; } .feat-grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="logo">Manuel Paredes <span>· Consultoría</span></a>
+  <ul>
+    <li><a href="index.html" class="active">Inicio</a></li>
+    <li><a href="projects.html">Proyectos</a></li>
+    <li><a href="experience.html">Experiencia</a></li>
+    <li><a href="index.html#contact">Contacto</a></li>
+  </ul>
+  <div class="lang-switch"><a href="../index.html">EN</a><span>|</span><a href="index.html" class="active">ES</a></div>
+</nav>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">Consultoría &middot; Tecnologías de Soldadura &middot; Automatización &middot; Robótica &middot; Digitalización</span>
+      <h1>Convirtiendo tecnología industrial en resultados medibles.</h1>
+      <p>Más de 10 años ayudando a fabricantes a adoptar las soluciones correctas de soldadura, robótica y transformación digital — desde la viabilidad hasta la implementación completa, en mercados EMEA e internacionales.</p>
+      <div class="hero-links">
+        <a href="projects.html" class="btn btn-white">Ver Proyectos</a>
+        <a href="https://www.linkedin.com/in/manuel-paredes-garses/?locale=en" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn &#8599;</a>
+        <a href="#contact" class="btn btn-ghost">Contacto</a>
+      </div>
+      <div class="lang-badges">
+        <span class="lang">Español &mdash; Nativo</span>
+        <span class="lang">Inglés &mdash; Fluido</span>
+        <span class="lang">Francés &mdash; Intermedio</span>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <img src="../photo-hero.jpg" alt="Manuel Paredes" />
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <section id="projects">
+    <span class="label">Proyectos Destacados</span>
+    <h2>Trabajo industrial seleccionado.</h2>
+    <p>Una muestra de proyectos de soldadura robótica, automatización e ingeniería de superficies entregados en mercados EMEA e internacionales. <a href="projects.html" style="color:var(--accent);text-decoration:none;font-weight:600;">Ver los 17 proyectos &rarr;</a></p>
+    <div class="feat-grid">
+
+    </div>
+  </section>
+</div>
+
+<hr />
+
+<div class="wrap">
+  <section id="about">
+    <div class="about-split">
+      <div class="about-photo">
+        <img src="../photo-about.jpg" alt="Manuel Paredes" />
+      </div>
+      <div class="about-text">
+        <span class="label">Sobre Mí</span>
+        <h2>La persona detrás del trabajo.</h2>
+        <p>Soy Manuel Paredes — consultor de desarrollo de negocio y tecnología industrial con más de 10 años de experiencia ayudando a fabricantes a adoptar las soluciones correctas de soldadura, robótica y digitalización.</p>
+        <p>He trabajado en mercados EMEA e internacionales, tendiendo puentes entre la tecnología compleja y los resultados comerciales reales. Ya sea seleccionando el proceso de soldadura adecuado, integrando una célula robótica o digitalizando una planta de producción — aporto experiencia práctica y un enfoque estructurado e independiente del proveedor.</p>
+        <a href="experience.html" class="btn btn-outline" style="margin-top:0.5rem;">Mi trayectoria completa &rarr;</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<hr />
+
+<div class="section-alt">
+  <div class="wrap">
+    <section id="services">
+      <span class="label">Servicios de Consultoría</span>
+      <h2>Cómo puedo ayudar.</h2>
+      <p>Asesoramiento independiente y neutral para fabricantes que adoptan tecnologías de soldadura, automatización y digitalización. <a href="experience.html" style="color:var(--accent);text-decoration:none;font-weight:600;">Experiencia completa &rarr;</a></p>
+      <div class="services-preview">
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg></div>
+          <div><h3>Tecnología de Soldadura</h3><p>Selección de procesos, desarrollo WPS/PQR, soldadura robótica de arco, evaluación de proveedores y estrategia de calidad.</p></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M2 12h4M18 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg></div>
+          <div><h3>Robótica y Automatización</h3><p>Viabilidad de células robóticas, selección de proveedores (FANUC, ABB, KUKA), supervisión de integración, análisis de ROI.</p></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <div><h3>Digitalización</h3><p>Hoja de ruta Industria 4.0, implementación de CRM y ERP, integración IoT, diseño de dashboards e indicadores clave.</p></div>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <div><h3>Desarrollo de Negocio</h3><p>Estrategia de entrada al mercado, creación de redes de distribuidores, proceso de ventas B2B, apoyo en negociación comercial.</p></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<hr />
+
+<div class="wrap">
+  <section>
+    <span class="label">Experiencia</span>
+    <h2>Más de 10 años de resultados.</h2>
+    <p>Logros en sectores de automatización industrial, tecnología inmobiliaria y desarrollo de negocio internacional. <a href="experience.html" style="color:var(--accent);text-decoration:none;font-weight:600;">Trayectoria completa &rarr;</a></p>
+    <div class="exp-preview">
+      <div class="exp-row"><div class="exp-dot"></div><div><h3>Business Development Manager</h3><span class="co">JET-ARCO &middot; Actualidad</span></div></div>
+      <div class="exp-row"><div class="exp-dot"></div><div><h3>Digital Development Team Manager</h3><span class="co">AFIK GROUP &middot; Chipre</span></div></div>
+      <div class="exp-row"><div class="exp-dot"></div><div><h3>Sales Manager — Robótica y Automatización</h3><span class="co">Automatización Industrial &middot; Región EMEA / CIS</span></div></div>
+    </div>
+  </section>
+</div>
+
+<hr />
+
+<div class="section-alt">
+  <div class="wrap">
+    <section id="contact">
+      <span class="label">Contacto</span>
+      <h2>Hablemos.</h2>
+      <p>Disponible para compromisos de consultoría, estudios de viabilidad y asesoramiento tecnológico en Europa y mercados internacionales.</p>
+      <div class="contact-grid">
+        <div class="contact-cell"><span class="c-label">Email</span><a href="mailto:paredesgmm@gmail.com">paredesgmm@gmail.com</a></div>
+        <div class="contact-cell"><span class="c-label">Teléfono</span><a href="tel:+34687502014">+34 687 50 20 14</a></div>
+        <div class="contact-cell"><span class="c-label">LinkedIn</span><a href="https://www.linkedin.com/in/manuel-paredes-garses/?locale=en" target="_blank" rel="noopener">Manuel Paredes &#8599;</a></div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<footer>
+  <p>&copy; 2025 Manuel Paredes &mdash; Consultoría en Soldadura, Robótica &amp; Digitalización &mdash; <a href="https://www.linkedin.com/in/manuel-paredes-garses/?locale=en" target="_blank" rel="noopener">LinkedIn</a></p>
+</footer>
+</body>
+</html>

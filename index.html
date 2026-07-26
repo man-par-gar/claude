@@ -3,277 +3,239 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manuel Paredes — Robotics & Welding Expert</title>
+  <title>Manuel Paredes — Robotics Sales &amp; Automation Expert</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #f9f9f7;
-      --fg: #111;
-      --muted: #666;
-      --accent: #c0392b;
-      --border: #e0e0da;
-      --max: 740px;
+      --blue:  #1a3a5c;
+      --white: #ffffff;
+      --off:   #f5f7fa;
+      --muted: #5a6a7a;
+      --border:#dde3ea;
+      --max:   760px;
     }
 
     html { font-size: 16px; scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--fg);
+      background: var(--white);
+      color: var(--blue);
       font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
       line-height: 1.7;
     }
 
     /* NAV */
     nav {
-      padding: 1.5rem 2rem;
+      background: var(--blue);
+      padding: 1.25rem 2rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 1px solid var(--border);
       position: sticky;
       top: 0;
-      background: var(--bg);
       z-index: 10;
     }
-
     .logo {
-      font-size: 0.85rem;
-      letter-spacing: 0.15em;
+      font-size: 0.82rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
       font-weight: 600;
-      color: var(--fg);
+      color: var(--white);
       text-decoration: none;
     }
-
     nav ul { list-style: none; display: flex; gap: 2rem; }
-
     nav a {
       text-decoration: none;
-      color: var(--muted);
-      font-size: 0.85rem;
-      letter-spacing: 0.05em;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.82rem;
+      letter-spacing: 0.06em;
       transition: color 0.2s;
     }
-    nav a:hover { color: var(--fg); }
-
-    /* WRAPPER */
-    .wrap {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+    nav a:hover { color: var(--white); }
 
     /* HERO */
     .hero {
-      padding: 6rem 0 4.5rem;
+      background: var(--blue);
+      color: var(--white);
+      padding: 5.5rem 2rem 4.5rem;
     }
-
+    .hero-inner { max-width: var(--max); margin: 0 auto; }
     .eyebrow {
-      font-size: 0.72rem;
-      letter-spacing: 0.22em;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1.5rem;
+      color: rgba(255,255,255,0.6);
       display: block;
+      margin-bottom: 1.25rem;
     }
-
     .hero h1 {
       font-family: Georgia, serif;
-      font-size: clamp(2.4rem, 6vw, 3.8rem);
+      font-size: clamp(2.2rem, 5.5vw, 3.5rem);
       font-weight: 400;
       line-height: 1.15;
-      margin-bottom: 1.5rem;
-      letter-spacing: -0.01em;
+      margin-bottom: 1.25rem;
+      color: var(--white);
     }
-
     .hero p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 500px;
-      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 540px;
+      margin-bottom: 2.25rem;
+      line-height: 1.75;
     }
-
+    .hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
     .btn {
       display: inline-block;
-      padding: 0.7rem 1.6rem;
-      border: 1px solid var(--fg);
-      color: var(--fg);
-      text-decoration: none;
-      font-size: 0.8rem;
+      padding: 0.65rem 1.5rem;
+      font-size: 0.78rem;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      transition: background 0.2s, color 0.2s;
-      margin-right: 0.75rem;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
     }
-    .btn:hover { background: var(--fg); color: var(--bg); }
-
-    /* DIVIDER */
-    hr {
-      border: none;
-      border-top: 1px solid var(--border);
-      margin: 0;
-    }
-
-    /* SECTION */
-    section {
-      padding: 4rem 0;
-    }
-
-    .label {
+    .btn-white { background: var(--white); color: var(--blue); border: 1px solid var(--white); }
+    .btn-white:hover { background: transparent; color: var(--white); }
+    .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.5); }
+    .btn-ghost:hover { border-color: var(--white); }
+    .lang-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+    .lang {
       font-size: 0.68rem;
-      letter-spacing: 0.22em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.65rem;
+      border: 1px solid rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.7);
+    }
+
+    /* LAYOUT */
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
+    section { padding: 4rem 0; }
+    .section-alt { background: var(--off); }
+    .label {
+      font-size: 0.66rem;
+      letter-spacing: 0.25em;
       text-transform: uppercase;
       color: var(--muted);
       display: block;
-      margin-bottom: 2rem;
+      margin-bottom: 1.75rem;
     }
-
     h2 {
       font-family: Georgia, serif;
-      font-size: 1.9rem;
+      font-size: 1.85rem;
       font-weight: 400;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
       line-height: 1.25;
+      color: var(--blue);
     }
-
     p { color: var(--muted); margin-bottom: 1rem; }
     p:last-child { margin-bottom: 0; }
+    hr { border: none; border-top: 1px solid var(--border); }
 
-    /* ABOUT GRID */
-    .about-grid {
+    /* SKILLS */
+    .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1px;
       background: var(--border);
-      margin-top: 2.5rem;
+      margin-top: 2.25rem;
     }
-
-    .about-cell {
-      background: var(--bg);
-      padding: 1.75rem;
-    }
-
-    .about-cell h3 {
-      font-size: 0.78rem;
-      letter-spacing: 0.14em;
+    .skill-cell { background: var(--white); padding: 1.6rem; }
+    .section-alt .skill-cell { background: var(--off); }
+    .skill-cell h3 {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
       text-transform: uppercase;
-      margin-bottom: 0.85rem;
-      color: var(--fg);
+      color: var(--blue);
+      margin-bottom: 0.8rem;
+      font-weight: 600;
     }
-
-    .about-cell ul {
-      list-style: none;
-      font-size: 0.88rem;
-      color: var(--muted);
-      line-height: 2.1;
+    .skill-cell ul { list-style: none; font-size: 0.875rem; color: var(--muted); line-height: 2; }
+    .certs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
+    .cert {
+      font-size: 0.68rem;
+      letter-spacing: 0.08em;
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--blue);
+      color: var(--blue);
     }
 
     /* TIMELINE */
-    .timeline { margin-top: 2.5rem; }
-
+    .timeline { margin-top: 2.25rem; }
     .tl-item {
       display: grid;
-      grid-template-columns: 90px 1fr;
+      grid-template-columns: 100px 1fr;
       gap: 1.5rem;
-      padding: 1.5rem 0;
+      padding: 1.75rem 0;
       border-top: 1px solid var(--border);
     }
     .tl-item:last-child { border-bottom: 1px solid var(--border); }
-
-    .tl-year {
-      font-size: 0.78rem;
-      color: var(--muted);
-      padding-top: 3px;
-    }
-
-    .tl-body h3 {
-      font-size: 0.95rem;
-      font-weight: 600;
-      margin-bottom: 0.2rem;
-      color: var(--fg);
-    }
-
+    .tl-year { font-size: 0.75rem; color: var(--muted); padding-top: 3px; line-height: 1.5; }
+    .tl-body h3 { font-size: 0.95rem; font-weight: 600; color: var(--blue); margin-bottom: 0.2rem; }
     .tl-body .co {
-      font-size: 0.78rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-      display: block;
-      margin-bottom: 0.4rem;
+      font-size: 0.78rem; color: var(--blue); opacity: 0.6;
+      display: block; margin-bottom: 0.5rem; letter-spacing: 0.04em;
     }
-
-    .tl-body p { font-size: 0.88rem; }
+    .tl-body p { font-size: 0.875rem; }
 
     /* PROJECTS */
-    .projects { margin-top: 2.5rem; }
-
-    .project {
-      padding: 2rem 0;
-      border-top: 1px solid var(--border);
-    }
+    .projects { margin-top: 2.25rem; }
+    .project { padding: 2rem 0; border-top: 1px solid var(--border); }
     .project:last-child { border-bottom: 1px solid var(--border); }
-
-    .project-meta {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      margin-bottom: 0.75rem;
-    }
-
+    .project-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
     .tag {
-      font-size: 0.65rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 0.18rem 0.55rem;
-      border: 1px solid var(--border);
-      color: var(--muted);
+      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
+      padding: 0.2rem 0.55rem; border: 1px solid var(--blue); color: var(--blue);
     }
-    .tag.r { border-color: #2980b9; color: #2980b9; }
-    .tag.w { border-color: var(--accent); color: var(--accent); }
-    .tag.h { border-color: #27ae60; color: #27ae60; }
-
+    .tag-solid { background: var(--blue); color: var(--white); }
     .project-year { font-size: 0.78rem; color: var(--muted); }
-
     .project h3 {
-      font-family: Georgia, serif;
-      font-size: 1.2rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-      color: var(--fg);
+      font-family: Georgia, serif; font-size: 1.2rem; font-weight: 400;
+      color: var(--blue); margin-bottom: 0.5rem;
     }
+    .project p { font-size: 0.88rem; }
 
-    .project p { font-size: 0.9rem; }
+    /* TESTIMONIALS */
+    .testimonials {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); margin-top: 2.25rem;
+    }
+    .testimonial { background: var(--white); padding: 2rem; }
+    .testimonial blockquote {
+      font-size: 0.9rem; color: var(--muted);
+      line-height: 1.8; font-style: italic; margin-bottom: 1.25rem;
+    }
+    .testimonial cite { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-style: normal; font-weight: 600; }
+    .cite-title { display: block; font-size: 0.72rem; color: var(--muted); font-weight: 400; letter-spacing: 0.04em; margin-top: 0.2rem; text-transform: none; }
 
     /* CONTACT */
-    .contact-line {
-      margin-top: 1.5rem;
-      font-size: 0.9rem;
-      color: var(--muted);
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border); margin-top: 2.25rem;
     }
-    .contact-line a {
-      color: var(--fg);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
+    .contact-cell { background: var(--white); padding: 1.5rem 1.75rem; }
+    .c-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.4rem; }
+    .contact-cell a {
+      color: var(--blue); text-decoration: none; font-size: 0.9rem; font-weight: 500;
+      border-bottom: 1px solid var(--border); transition: border-color 0.2s;
     }
-    .contact-line a:hover { border-color: var(--fg); }
+    .contact-cell a:hover { border-color: var(--blue); }
+    .contact-val { font-size: 0.9rem; color: var(--blue); font-weight: 500; }
 
     /* FOOTER */
     footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      text-align: center;
-      font-size: 0.78rem;
-      color: var(--muted);
-      letter-spacing: 0.05em;
+      background: var(--blue); color: rgba(255,255,255,0.5);
+      text-align: center; padding: 2rem; font-size: 0.75rem; letter-spacing: 0.06em;
     }
+    footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    footer a:hover { color: var(--white); }
 
     /* RESPONSIVE */
-    @media (max-width: 560px) {
-      nav ul { gap: 1.25rem; }
-      .about-grid { grid-template-columns: 1fr; }
-      .tl-item { grid-template-columns: 60px 1fr; }
-      .hero { padding: 3.5rem 0 3rem; }
+    @media (max-width: 580px) {
+      nav ul { gap: 1rem; }
+      .skills-grid, .testimonials, .contact-grid { grid-template-columns: 1fr; }
+      .tl-item { grid-template-columns: 70px 1fr; gap: 1rem; }
+      .hero { padding: 3.5rem 1.5rem 3rem; }
     }
   </style>
 </head>
@@ -289,128 +251,86 @@
   </ul>
 </nav>
 
-<!-- HERO -->
-<div class="wrap">
-  <div class="hero">
-    <span class="eyebrow">Robotics &amp; Welding Expert</span>
-    <h1>Precision at the<br>intersection of metal<br>and motion.</h1>
+<div class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Sales Manager &middot; Robotics &amp; Automation Expert &middot; CSM&reg;</span>
+    <h1>Driving industrial<br>automation sales<br>across EMEA &amp; CIS.</h1>
     <p>
-      I engineer robotic systems and advanced welding solutions for demanding
-      industrial environments — from concept and design through fabrication
-      and deployment.
+      Strategic sales leader with 10+ years of experience in industrial robotics,
+      automation, and digital transformation. Proven record managing complex B2B
+      sales cycles, delivering multi-million-euro projects, and scaling business
+      in multicultural environments.
     </p>
-    <a href="#projects" class="btn">View Projects</a>
-    <a href="#contact" class="btn">Contact</a>
+    <div class="hero-links">
+      <a href="#projects" class="btn btn-white">View Projects</a>
+      <a href="https://www.linkedin.com/in/manuel-paredes-garses/?locale=en" target="_blank" rel="noopener" class="btn btn-ghost">LinkedIn &#8599;</a>
+      <a href="#contact" class="btn btn-ghost">Contact</a>
+    </div>
+    <div class="lang-badges">
+      <span class="lang">Spanish &mdash; Native</span>
+      <span class="lang">English &mdash; Fluent</span>
+      <span class="lang">Russian &mdash; Fluent</span>
+      <span class="lang">French &mdash; Intermediate</span>
+    </div>
   </div>
 </div>
 
-<hr />
-
-<!-- ABOUT -->
 <div class="wrap">
   <section id="about">
     <span class="label">About</span>
     <h2>Skills &amp; Expertise</h2>
     <p>
-      With a background spanning industrial robotics and precision welding,
-      I bridge the gap between mechanical engineering and hands-on fabrication.
-      I design automation systems that are reliable, repeatable, and built to
-      survive real production conditions.
+      I bridge the gap between complex industrial technology and business growth.
+      With deep expertise in robotics solutions sales and hands-on knowledge of
+      automation systems &mdash; welding, cutting, coating, palletizing, painting,
+      CNC, and IoT &mdash; I translate technical capability into commercial value
+      for manufacturers across Europe, CIS, and MENA.
     </p>
     <p>
-      My work combines programming, mechanical design, and metallurgy — giving
-      me an end-to-end perspective that few specialists can offer.
+      Known for CRM mastery, agile project delivery, and high-impact leadership
+      in cross-functional, cross-cultural settings.
     </p>
 
-    <div class="about-grid">
-      <div class="about-cell">
-        <h3>Robotics</h3>
+    <div class="skills-grid">
+      <div class="skill-cell">
+        <h3>Robotics &amp; Automation Sales</h3>
         <ul>
-          <li>Industrial robot programming (FANUC, ABB, KUKA)</li>
-          <li>Collaborative robotics (cobots)</li>
-          <li>Motion planning &amp; path optimization</li>
-          <li>PLC integration &amp; sensor fusion</li>
-          <li>End-effector design</li>
-          <li>ROS / ROS 2</li>
+          <li>Industrial robotics (CapEx &amp; solutions)</li>
+          <li>Welding, cutting, coating, palletizing</li>
+          <li>Painting, CNC machines, IoT</li>
+          <li>Complex B2B sales cycles</li>
+          <li>Key Account Management (KAM)</li>
+          <li>C-level negotiation &amp; engagement</li>
         </ul>
       </div>
-      <div class="about-cell">
-        <h3>Welding</h3>
+      <div class="skill-cell">
+        <h3>Business Development</h3>
         <ul>
-          <li>MIG / GMAW &amp; TIG / GTAW</li>
-          <li>Robotic arc welding systems</li>
-          <li>Structural &amp; aerospace fabrication</li>
-          <li>Exotic alloys (titanium, Inconel, duplex SS)</li>
-          <li>Weld procedure development (WPS / PQR)</li>
-          <li>NDT interpretation</li>
+          <li>Partner network development</li>
+          <li>EMEA &amp; CIS market expansion</li>
+          <li>Multi-million-euro project delivery</li>
+          <li>Cross-cultural team leadership</li>
+          <li>Pipeline &amp; forecasting management</li>
+          <li>Agile: Scrum &amp; Kanban (CSM&reg;)</li>
         </ul>
       </div>
-      <div class="about-cell">
-        <h3>Engineering</h3>
+      <div class="skill-cell">
+        <h3>CRM &amp; Digital Marketing</h3>
         <ul>
-          <li>CAD / CAM (SolidWorks, Fusion 360)</li>
-          <li>Simulation &amp; FEA</li>
-          <li>Fixture &amp; tooling design</li>
-          <li>Process documentation &amp; quality control</li>
+          <li>Kommo, Bitrix24, Qobrix</li>
+          <li>Planfix, MS Dynamics</li>
+          <li>LinkedIn, SEO, digital campaigns</li>
+          <li>Omnichannel lead generation</li>
+          <li>Real-time dashboards &amp; reporting</li>
         </ul>
       </div>
-      <div class="about-cell">
+      <div class="skill-cell">
         <h3>Certifications</h3>
-        <ul>
-          <li>AWS Certified Welding Inspector (CWI)</li>
-          <li>FANUC Certified Robot Operator</li>
-          <li>OSHA 30 — Manufacturing</li>
-          <li>ISO 9001 Internal Auditor</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-</div>
-
-<hr />
-
-<!-- EXPERIENCE -->
-<div class="wrap">
-  <section id="experience">
-    <span class="label">Experience</span>
-    <h2>Work History</h2>
-
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-year">2022 – Present</div>
-        <div class="tl-body">
-          <h3>Senior Robotics &amp; Welding Engineer</h3>
-          <span class="co">Advanced Fabrication Industries</span>
-          <p>
-            Lead engineer for robotic welding cell design and deployment across
-            three production facilities. Reduced cycle time by 34% and weld
-            defect rate by 60% through process re-engineering and adaptive
-            control integration.
-          </p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2018 – 2022</div>
-        <div class="tl-body">
-          <h3>Automation Engineer</h3>
-          <span class="co">MetalTech Solutions</span>
-          <p>
-            Designed and commissioned robotic arc welding systems for
-            heavy-equipment OEMs. Developed custom end-effectors and seam
-            tracking systems for complex joint geometries.
-          </p>
-        </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">2015 – 2018</div>
-        <div class="tl-body">
-          <h3>Welding Technician &amp; Programmer</h3>
-          <span class="co">Precision Structures Corp.</span>
-          <p>
-            Hands-on welding of aerospace and structural assemblies alongside
-            programming of FANUC and ABB robot cells. First point of contact
-            for weld quality issues and fixture development.
-          </p>
+        <div class="certs">
+          <span class="cert">Certified Scrum Master&reg; (CSM)</span>
+          <span class="cert">Industrial Robotics Sales</span>
+          <span class="cert">Digital Marketing</span>
+          <span class="cert">Agile Project Delivery</span>
         </div>
       </div>
     </div>
@@ -419,93 +339,216 @@
 
 <hr />
 
-<!-- PROJECTS -->
+<div class="section-alt">
+  <div class="wrap">
+    <section id="experience">
+      <span class="label">Experience</span>
+      <h2>10+ Years of Results</h2>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-year">2021<br>&ndash; Present</div>
+          <div class="tl-body">
+            <h3>Digital Development Team Manager</h3>
+            <span class="co">AFIK GROUP &middot; Cyprus</span>
+            <p>
+              Led CRM implementation for real estate (10K+ units, 10+ real-time dashboards)
+              and short/long-term rentals via omnichannel setup (Website, Facebook, Instagram,
+              WhatsApp) with 10+ lead sources and four specialized pipelines. Managed digital
+              marketing campaigns across LinkedIn, Facebook, Instagram, and SEO with a budget
+              exceeding &euro;30K.
+            </p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2019<br>&ndash; 2021</div>
+          <div class="tl-body">
+            <h3>Sales Manager &mdash; Robotics &amp; Automation</h3>
+            <span class="co">Industrial Automation &middot; EMEA / CIS Region</span>
+            <p>
+              Managed cross-functional sales teams across EMEA and CIS markets. Delivered
+              robotics and automation projects for manufacturing clients, handling complex
+              contract negotiations with multiple stakeholders. Implemented NPS systems
+              and introduced new automation technologies to key markets.
+            </p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2017<br>&ndash; 2019</div>
+          <div class="tl-body">
+            <h3>Business Development &amp; Automation Sales</h3>
+            <span class="co">Robotics Solutions &middot; Russia / CIS</span>
+            <p>
+              Spearheaded business development and sales in the Russian market. Built and
+              managed partner networks across universities, industrial departments, and OEM
+              channels. Introduced international industrial automation platforms and grew
+              the regional client base substantially.
+            </p>
+          </div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-year">2015<br>&ndash; 2017</div>
+          <div class="tl-body">
+            <h3>Automation Sales &amp; Account Management</h3>
+            <span class="co">Industrial Robotics &middot; Russia</span>
+            <p>
+              Managed a portfolio of 10+ enterprise accounts across the Russian industrial
+              sector. Structured customer feedback processes, introduced CRM tools to the
+              regional team, and developed co-marketing initiatives with international
+              automation partners.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>
+
 <div class="wrap">
   <section id="projects">
     <span class="label">Projects</span>
     <h2>Selected Work</h2>
-
     <div class="projects">
+
       <div class="project">
         <div class="project-meta">
-          <span class="tag h">Hybrid</span>
-          <span class="project-year">2024</span>
+          <span class="tag tag-solid">CRM &amp; Digital</span>
+          <span class="project-year">2022 &ndash; 2024</span>
         </div>
-        <h3>Adaptive Robotic Welding Cell for Pressure Vessels</h3>
+        <h3>End-to-End CRM Transformation &mdash; AFIK GROUP</h3>
         <p>
-          Designed a fully adaptive welding cell using a 6-axis FANUC arm with
-          laser seam tracking and real-time parameter adjustment. The system
-          handles variable joint fit-up on ASME-code pressure vessels,
-          eliminating manual re-teaching and cutting setup time from 4 hours
-          to under 20 minutes.
+          Designed and deployed two specialized CRM systems: one managing 10K+ property
+          units with real-time reporting across 10+ dashboards, and a second for short and
+          long-term rentals with centralized omnichannel communication. Automated the offer
+          generation process end-to-end, eliminating manual steps and accelerating response times.
         </p>
       </div>
 
       <div class="project">
         <div class="project-meta">
-          <span class="tag r">Robotics</span>
-          <span class="project-year">2023</span>
+          <span class="tag tag-solid">Robotics Sales</span>
+          <span class="project-year">2019 &ndash; 2021</span>
         </div>
-        <h3>Multi-Robot Collaborative Assembly Line</h3>
+        <h3>Multi-Million-Euro Robotics Portfolio &mdash; EMEA &amp; CIS</h3>
         <p>
-          Coordinated a 4-robot cell (2 ABB IRB 6700, 2 collaborative UR10e)
-          for tack welding and material handling of structural steel frames.
-          Implemented collision-free motion planning using ROS 2 MoveIt and
-          achieved a 28% throughput gain over the previous manual process.
+          Led sales of industrial robotic solutions (welding, cutting, coating, palletizing)
+          to manufacturers across multiple EMEA and CIS countries. Managed complex
+          multi-stakeholder contracts and partner relationships, growing the regional revenue
+          pipeline through structured CRM forecasting.
         </p>
       </div>
 
       <div class="project">
         <div class="project-meta">
-          <span class="tag w">Welding</span>
-          <span class="project-year">2022</span>
+          <span class="tag tag-solid">Market Entry</span>
+          <span class="project-year">2017 &ndash; 2019</span>
         </div>
-        <h3>Titanium Aerospace Bracket — WPS Development</h3>
+        <h3>Industrial Automation Market Entry &mdash; Russia</h3>
         <p>
-          Developed weld procedure specifications for Grade 5 titanium
-          brackets used in aircraft secondary structures. Qualified procedures
-          per AWS D17.1, including inert-gas purging protocols that achieved
-          zero porosity on 100% of radiographic inspections.
+          Introduced international industrial automation platforms to the Russian market,
+          building distribution and partner networks from the ground up. Engaged university
+          engineering departments and industrial OEMs as early adopters, establishing a
+          scalable channel partner model.
         </p>
       </div>
 
       <div class="project">
         <div class="project-meta">
-          <span class="tag r">Robotics</span>
-          <span class="project-year">2021</span>
+          <span class="tag tag-solid">Digital Marketing</span>
+          <span class="project-year">2022 &ndash; 2023</span>
         </div>
-        <h3>Custom End-Effector for Thin-Wall Tube Welding</h3>
+        <h3>&euro;30K+ Digital Campaign Management</h3>
         <p>
-          Designed and fabricated a dual-torch end-effector for orbital welding
-          of thin-wall stainless steel tubing on a KUKA KR 10 R1100. Integrated
-          vision-based joint detection and proprietary torch angle compensation
-          logic to maintain consistent fusion on ±0.3 mm fit-up variation.
+          Managed full-funnel digital marketing campaigns across LinkedIn, Facebook,
+          Instagram, and SEO. Centralized 10+ inbound lead sources into a single CRM
+          pipeline, enabling data-driven optimization and measurable improvements in
+          lead-to-deal conversion rates.
         </p>
       </div>
+
     </div>
   </section>
 </div>
 
 <hr />
 
-<!-- CONTACT -->
+<div class="section-alt">
+  <div class="wrap">
+    <section id="recommendations">
+      <span class="label">Recommendations</span>
+      <h2>What colleagues say.</h2>
+      <div class="testimonials">
+        <div class="testimonial">
+          <blockquote>
+            "Manuel is an exceptional professional who combines deep technical knowledge of
+            industrial automation with outstanding commercial instincts. His ability to manage
+            complex, multi-stakeholder projects across different cultures and languages is truly
+            rare. He delivers results consistently and brings energy and structure to every team
+            he works in."
+          </blockquote>
+          <cite>
+            Arkadi
+            <span class="cite-title">Letter of Recommendation</span>
+          </cite>
+        </div>
+        <div class="testimonial">
+          <blockquote>
+            "I had the pleasure of working with Manuel on several robotics and automation
+            projects. His cross-cultural leadership skills, combined with his technical depth
+            in industrial robotics and his disciplined approach to CRM and pipeline management,
+            made him an invaluable asset. I recommend him without reservation."
+          </blockquote>
+          <cite>
+            Ilia Ostretsov
+            <span class="cite-title">Letter of Recommendation</span>
+          </cite>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
 <div class="wrap">
   <section id="contact">
     <span class="label">Contact</span>
     <h2>Get in touch.</h2>
     <p>
-      Available for consulting, full-time roles, and speaking engagements
-      related to robotic welding, automation integration, and advanced
-      fabrication.
+      Available for senior sales leadership roles, consulting engagements, and strategic
+      partnerships in industrial robotics, automation, and digital transformation across
+      EMEA and CIS.
     </p>
-    <div class="contact-line">
-      Email: <a href="mailto:paredesgmm@gmail.com">paredesgmm@gmail.com</a>
+    <div class="contact-grid">
+      <div class="contact-cell">
+        <span class="c-label">Email</span>
+        <a href="mailto:paredesgmm@gmail.com">paredesgmm@gmail.com</a>
+      </div>
+      <div class="contact-cell">
+        <span class="c-label">WhatsApp / Phone</span>
+        <a href="tel:+34687502014">+34 687 50 20 14</a>
+      </div>
+      <div class="contact-cell">
+        <span class="c-label">LinkedIn</span>
+        <a href="https://www.linkedin.com/in/manuel-paredes-garses/?locale=en" target="_blank" rel="noopener">
+          linkedin.com/in/manuel-paredes-garses
+        </a>
+      </div>
+      <div class="contact-cell">
+        <span class="c-label">Location</span>
+        <span class="contact-val">Spain &middot; Open to relocation</span>
+      </div>
     </div>
   </section>
 </div>
 
 <footer>
-  © 2026 Manuel Paredes
+  &copy; 2026 Manuel Paredes &nbsp;&middot;&nbsp;
+  <a href="https://www.linkedin.com/in/manuel-paredes-garses/?locale=en" target="_blank" rel="noopener">LinkedIn</a>
+  &nbsp;&middot;&nbsp;
+  <a href="mailto:paredesgmm@gmail.com">paredesgmm@gmail.com</a>
 </footer>
 
 </body>

@@ -127,13 +127,15 @@
 
     @media (max-width: 900px) {
       .hero-inner { grid-template-columns: 1fr; }
-      .hero-photo { display: none; }
-      .feat-grid { grid-template-columns: 1fr; }
+      .hero-photo { width: 200px; height: 240px; margin: 0 auto; }
+      .feat-grid { grid-template-columns: 1fr 1fr; }
       .services-preview { grid-template-columns: 1fr; }
       .contact-grid { grid-template-columns: 1fr; }
     }
     @media (max-width: 640px) {
       .hero { padding: 4rem 1.5rem 3.5rem; }
+      .hero-photo { display: none; }
+      .feat-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>

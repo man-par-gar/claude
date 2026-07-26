@@ -3,17 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iOCIgZmlsbD0iIzFhM2E1YyIvPjx0ZXh0IHg9IjMyIiB5PSI0NCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEsc2VyaWYiIGZvbnQtc2l6ZT0iMjgiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+TVA8L3RleHQ+PC9zdmc+" />
   <title>Manuel Paredes — Welding, Automation &amp; Robotics Consulting</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --blue:  #1a3a5c;
-      --white: #ffffff;
-      --off:   #f5f7fa;
-      --muted: #5a6a7a;
-      --border:#dde3ea;
-      --max:   760px;
+      --blue:    #0f2744;
+      --accent:  #1e5faa;
+      --white:   #ffffff;
+      --off:     #f4f6f9;
+      --muted:   #64748b;
+      --border:  #e2e8f0;
+      --card:    #ffffff;
+      --max:     800px;
     }
 
     html { font-size: 16px; scroll-behavior: smooth; }
@@ -21,112 +24,135 @@
     body {
       background: var(--white);
       color: var(--blue);
-      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
       line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
     }
 
     /* NAV */
     nav {
-      background: var(--blue);
-      padding: 1.25rem 2rem;
+      background: rgba(15,39,68,0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 1rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
       position: sticky;
       top: 0;
-      z-index: 10;
+      z-index: 100;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .logo {
-      font-size: 0.82rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 700;
       color: var(--white);
       text-decoration: none;
+      letter-spacing: 0.02em;
     }
+    .logo span { color: rgba(255,255,255,0.45); font-weight: 400; }
     nav ul { list-style: none; display: flex; gap: 2rem; }
     nav a {
       text-decoration: none;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.6);
       font-size: 0.82rem;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.05em;
       transition: color 0.2s;
+      font-weight: 500;
     }
     nav a:hover { color: var(--white); }
 
     /* HERO */
     .hero {
-      background: var(--blue);
+      background: linear-gradient(135deg, #0f2744 0%, #1a3d6e 60%, #1e5faa 100%);
       color: var(--white);
-      padding: 5.5rem 2rem 4.5rem;
+      padding: 7rem 2.5rem 6rem;
+      position: relative;
+      overflow: hidden;
     }
-    .hero-inner { max-width: var(--max); margin: 0 auto; }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(30,95,170,0.35) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-inner { max-width: var(--max); margin: 0 auto; position: relative; }
     .eyebrow {
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
+      font-size: 0.68rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.5);
       display: block;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1.5rem;
     }
     .hero h1 {
-      font-family: Georgia, serif;
-      font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: clamp(2.4rem, 5.5vw, 3.8rem);
       font-weight: 400;
-      line-height: 1.15;
-      margin-bottom: 1.25rem;
+      line-height: 1.12;
+      margin-bottom: 1.5rem;
       color: var(--white);
+      letter-spacing: -0.01em;
     }
+    .hero h1 em { font-style: normal; color: rgba(255,255,255,0.65); }
     .hero p {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.75);
-      max-width: 540px;
-      margin-bottom: 2.25rem;
-      line-height: 1.75;
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.72);
+      max-width: 520px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
     }
     .hero-links { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
     .btn {
-      display: inline-block;
-      padding: 0.65rem 1.5rem;
-      font-size: 0.78rem;
-      letter-spacing: 0.1em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.7rem 1.6rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      border-radius: 4px;
+      transition: all 0.2s;
     }
-    .btn-white { background: var(--white); color: var(--blue); border: 1px solid var(--white); }
+    .btn-white { background: var(--white); color: var(--blue); border: 2px solid var(--white); }
     .btn-white:hover { background: transparent; color: var(--white); }
-    .btn-ghost { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.5); }
-    .btn-ghost:hover { border-color: var(--white); }
-    .lang-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2rem; }
+    .btn-ghost { background: transparent; color: rgba(255,255,255,0.9); border: 2px solid rgba(255,255,255,0.35); }
+    .btn-ghost:hover { border-color: var(--white); color: var(--white); }
+    .lang-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 2.5rem; }
     .lang {
-      font-size: 0.68rem;
-      letter-spacing: 0.1em;
+      font-size: 0.67rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 0.2rem 0.65rem;
-      border: 1px solid rgba(255,255,255,0.3);
-      color: rgba(255,255,255,0.7);
+      padding: 0.3rem 0.8rem;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.25);
+      color: rgba(255,255,255,0.65);
     }
 
     /* LAYOUT */
-    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 2rem; }
-    section { padding: 4rem 0; }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 2.5rem; }
+    section { padding: 5rem 0; }
     .section-alt { background: var(--off); }
     .label {
-      font-size: 0.66rem;
-      letter-spacing: 0.25em;
+      font-size: 0.63rem;
+      letter-spacing: 0.3em;
       text-transform: uppercase;
-      color: var(--muted);
+      color: var(--accent);
       display: block;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1rem;
+      font-weight: 600;
     }
     h2 {
-      font-family: Georgia, serif;
-      font-size: 1.85rem;
+      font-family: Georgia, 'Times New Roman', serif;
+      font-size: 2.1rem;
       font-weight: 400;
-      margin-bottom: 1rem;
-      line-height: 1.25;
+      margin-bottom: 1.25rem;
+      line-height: 1.2;
       color: var(--blue);
+      letter-spacing: -0.02em;
     }
     p { color: var(--muted); margin-bottom: 1rem; }
     p:last-child { margin-bottom: 0; }
@@ -136,106 +162,146 @@
     .skills-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 1px;
-      background: var(--border);
-      margin-top: 2.25rem;
+      gap: 1rem;
+      margin-top: 2.5rem;
     }
-    .skill-cell { background: var(--white); padding: 1.6rem; }
-    .section-alt .skill-cell { background: var(--off); }
+    .skill-cell {
+      background: var(--card);
+      padding: 1.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .skill-cell:hover { box-shadow: 0 4px 16px rgba(15,39,68,0.1); transform: translateY(-2px); }
+    .section-alt .skill-cell { background: var(--white); }
     .skill-cell h3 {
-      font-size: 0.72rem;
-      letter-spacing: 0.15em;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--blue);
-      margin-bottom: 0.8rem;
-      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 700;
     }
-    .skill-cell ul { list-style: none; font-size: 0.875rem; color: var(--muted); line-height: 2; }
+    .skill-cell ul { list-style: none; font-size: 0.875rem; color: var(--muted); line-height: 2.1; }
+    .skill-cell ul li::before { content: "·  "; color: var(--accent); font-weight: 700; }
     .certs { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.5rem; }
     .cert {
       font-size: 0.68rem;
-      letter-spacing: 0.08em;
-      padding: 0.3rem 0.7rem;
-      border: 1px solid var(--blue);
+      letter-spacing: 0.05em;
+      padding: 0.35rem 0.8rem;
+      border-radius: 4px;
+      background: var(--off);
+      border: 1px solid var(--border);
       color: var(--blue);
+      font-weight: 500;
     }
 
     /* TIMELINE */
-    .timeline { margin-top: 2.25rem; }
+    .timeline { margin-top: 2.5rem; }
     .tl-item {
       display: grid;
-      grid-template-columns: 100px 1fr;
+      grid-template-columns: 24px 1fr;
       gap: 1.5rem;
-      padding: 1.75rem 0;
+      padding: 2rem 0;
       border-top: 1px solid var(--border);
+      position: relative;
     }
     .tl-item:last-child { border-bottom: 1px solid var(--border); }
-    .tl-year { font-size: 0.75rem; color: var(--muted); padding-top: 3px; line-height: 1.5; }
-    .tl-body h3 { font-size: 0.95rem; font-weight: 600; color: var(--blue); margin-bottom: 0.2rem; }
+    .tl-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-top: 6px;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 3px rgba(30,95,170,0.15);
+    }
+    .tl-body h3 { font-size: 1rem; font-weight: 700; color: var(--blue); margin-bottom: 0.25rem; }
     .tl-body .co {
-      font-size: 0.78rem; color: var(--blue); opacity: 0.6;
-      display: block; margin-bottom: 0.5rem; letter-spacing: 0.04em;
+      font-size: 0.8rem; color: var(--accent);
+      display: block; margin-bottom: 0.6rem; font-weight: 600;
     }
     .tl-body p { font-size: 0.875rem; }
 
     /* PROJECTS */
-    .projects { margin-top: 2.25rem; }
-    .project { padding: 2rem 0; border-top: 1px solid var(--border); }
-    .project:last-child { border-bottom: 1px solid var(--border); }
+    .projects { margin-top: 2.5rem; display: flex; flex-direction: column; gap: 1rem; }
+    .project {
+      padding: 1.75rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--card);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project:hover { box-shadow: 0 4px 16px rgba(15,39,68,0.1); transform: translateY(-2px); }
     .project-meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
     .tag {
-      font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase;
-      padding: 0.2rem 0.55rem; border: 1px solid var(--blue); color: var(--blue);
+      font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.25rem 0.65rem; border-radius: 100px;
+      border: 1px solid var(--accent); color: var(--accent); font-weight: 600;
     }
-    .tag-solid { background: var(--blue); color: var(--white); }
+    .tag-solid { background: var(--blue); color: var(--white); border-color: var(--blue); }
     .project-year { font-size: 0.78rem; color: var(--muted); }
     .project h3 {
-      font-family: Georgia, serif; font-size: 1.2rem; font-weight: 400;
-      color: var(--blue); margin-bottom: 0.5rem;
+      font-family: Georgia, serif; font-size: 1.15rem; font-weight: 400;
+      color: var(--blue); margin-bottom: 0.5rem; line-height: 1.3;
     }
     .project p { font-size: 0.88rem; }
 
     /* TESTIMONIALS */
     .testimonials {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; background: var(--border); margin-top: 2.25rem;
+      gap: 1rem; margin-top: 2.5rem;
     }
-    .testimonial { background: var(--white); padding: 2rem; }
+    .testimonial {
+      background: var(--white); padding: 2rem;
+      border-radius: 10px; border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
     .testimonial blockquote {
       font-size: 0.9rem; color: var(--muted);
-      line-height: 1.8; font-style: italic; margin-bottom: 1.25rem;
+      line-height: 1.85; font-style: italic; margin-bottom: 1.5rem;
+      position: relative; padding-left: 1rem;
+      border-left: 3px solid var(--accent);
     }
-    .testimonial cite { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-style: normal; font-weight: 600; }
+    .testimonial cite { font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); font-style: normal; font-weight: 700; }
     .cite-title { display: block; font-size: 0.72rem; color: var(--muted); font-weight: 400; letter-spacing: 0.04em; margin-top: 0.2rem; text-transform: none; }
 
     /* CONTACT */
     .contact-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      gap: 1px; background: var(--border); margin-top: 2.25rem;
+      gap: 1rem; margin-top: 2.5rem;
     }
-    .contact-cell { background: var(--white); padding: 1.5rem 1.75rem; }
-    .c-label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 0.4rem; }
+    .contact-cell {
+      background: var(--card); padding: 1.5rem 1.75rem;
+      border-radius: 10px; border: 1px solid var(--border);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+    .c-label { font-size: 0.63rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 0.4rem; font-weight: 600; }
     .contact-cell a {
-      color: var(--blue); text-decoration: none; font-size: 0.9rem; font-weight: 500;
-      border-bottom: 1px solid var(--border); transition: border-color 0.2s;
+      color: var(--blue); text-decoration: none; font-size: 0.9rem; font-weight: 600;
+      border-bottom: 1px solid transparent; transition: border-color 0.2s;
     }
     .contact-cell a:hover { border-color: var(--blue); }
-    .contact-val { font-size: 0.9rem; color: var(--blue); font-weight: 500; }
+    .contact-val { font-size: 0.9rem; color: var(--blue); font-weight: 600; }
 
     /* FOOTER */
     footer {
-      background: var(--blue); color: rgba(255,255,255,0.5);
-      text-align: center; padding: 2rem; font-size: 0.75rem; letter-spacing: 0.06em;
+      background: var(--blue); color: rgba(255,255,255,0.45);
+      text-align: center; padding: 2.5rem; font-size: 0.75rem; letter-spacing: 0.06em;
     }
-    footer a { color: rgba(255,255,255,0.7); text-decoration: none; }
+    footer a { color: rgba(255,255,255,0.65); text-decoration: none; }
     footer a:hover { color: var(--white); }
 
     /* RESPONSIVE */
-    @media (max-width: 580px) {
+    @media (max-width: 600px) {
       nav ul { gap: 1rem; }
+      nav { padding: 0.9rem 1.25rem; }
+      .wrap { padding: 0 1.25rem; }
       .skills-grid, .testimonials, .contact-grid { grid-template-columns: 1fr; }
-      .tl-item { grid-template-columns: 70px 1fr; gap: 1rem; }
-      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .tl-item { grid-template-columns: 20px 1fr; gap: 1rem; }
+      .hero { padding: 4rem 1.5rem 3.5rem; }
     }
 
     /* PORTFOLIO */
@@ -282,7 +348,7 @@
 <body>
 
 <nav>
-  <a href="#" class="logo">Manuel Paredes</a>
+  <a href="#" class="logo">Manuel Paredes <span>· Consulting</span></a>
   <ul>
     <li><a href="#services">Services</a></li>
     <li><a href="#about">About</a></li>
@@ -309,7 +375,6 @@
     <div class="lang-badges">
       <span class="lang">Spanish &mdash; Native</span>
       <span class="lang">English &mdash; Fluent</span>
-      <span class="lang">Russian &mdash; Fluent</span>
       <span class="lang">French &mdash; Intermediate</span>
     </div>
   </div>
@@ -444,7 +509,7 @@
       <div class="timeline">
 
         <div class="tl-item">
-          <div class="tl-year">Present</div>
+          <div class="tl-dot"></div>
           <div class="tl-body">
             <h3>Business Development Manager</h3>
             <span class="co">JET-ARCO</span>
@@ -458,7 +523,7 @@
         </div>
 
         <div class="tl-item">
-          <div class="tl-year">2021<br>&ndash; 2024</div>
+          <div class="tl-dot"></div>
           <div class="tl-body">
             <h3>Digital Development Team Manager</h3>
             <span class="co">AFIK GROUP &middot; Cyprus</span>
@@ -473,7 +538,7 @@
         </div>
 
         <div class="tl-item">
-          <div class="tl-year">2019<br>&ndash; 2021</div>
+          <div class="tl-dot"></div>
           <div class="tl-body">
             <h3>Sales Manager &mdash; Robotics &amp; Automation</h3>
             <span class="co">Industrial Automation &middot; EMEA / CIS Region</span>
@@ -487,27 +552,24 @@
         </div>
 
         <div class="tl-item">
-          <div class="tl-year">2017<br>&ndash; 2019</div>
+          <div class="tl-dot"></div>
           <div class="tl-body">
             <h3>Business Development &amp; Automation Sales</h3>
-            <span class="co">Robotics Solutions &middot; Russia / CIS</span>
+            <span class="co">Robotics Solutions &middot; CIS Region</span>
             <p>
-              Spearheaded business development and sales in the Russian market. Built and
-              managed partner networks across universities, industrial departments, and OEM
-              channels. Introduced international industrial automation platforms and grew
+              Built and managed partner networks across universities, industrial departments, and OEM channels across the CIS region. Introduced international industrial automation platforms and grew
               the regional client base substantially.
             </p>
           </div>
         </div>
 
         <div class="tl-item">
-          <div class="tl-year">2015<br>&ndash; 2017</div>
+          <div class="tl-dot"></div>
           <div class="tl-body">
             <h3>Automation Sales &amp; Account Management</h3>
-            <span class="co">Industrial Robotics &middot; Russia</span>
+            <span class="co">Industrial Robotics &middot; CIS Region</span>
             <p>
-              Managed a portfolio of 10+ enterprise accounts across the Russian industrial
-              sector. Structured customer feedback processes, introduced CRM tools to the
+              Managed a portfolio of 10+ enterprise accounts across the CIS industrial sector. Structured customer feedback processes, introduced CRM tools to the
               regional team, and developed co-marketing initiatives with international
               automation partners.
             </p>
@@ -558,9 +620,9 @@
           <span class="tag tag-solid">Market Entry</span>
           <span class="project-year">2017 &ndash; 2019</span>
         </div>
-        <h3>Industrial Automation Market Entry &mdash; Russia</h3>
+        <h3>Industrial Automation Market Entry &mdash; CIS Region</h3>
         <p>
-          Introduced international industrial automation platforms to the Russian market,
+          Introduced international industrial automation platforms to CIS markets,
           building distribution and partner networks from the ground up. Engaged university
           engineering departments and industrial OEMs as early adopters, establishing a
           scalable channel partner model.
